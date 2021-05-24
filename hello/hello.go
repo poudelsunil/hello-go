@@ -1,11 +1,22 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
+	"log"
+
     "github.com/hello-go/greetings"
 )
 
 func main() {
-    message := greetings.Hello("Ben")
-    fmt.Println(message)
+
+	log.SetPrefix("greetings: ")
+	// log.SetFlags(0)
+	
+	message, err := greetings.Hello("")
+	if(err != nil){
+		log.Fatal(err)
+	}
+	
+	fmt.Println(message)
+	
 }
